@@ -14,7 +14,9 @@ const uri = `mongodb+srv://Timoteo:${password}@cluster0.cbjdwvt.mongodb.net/${db
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(express.static(__dirname+"/public"))
-app.use(cors())
+app.use(cors({
+    origin:"*",
+}))
 
 mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
 
@@ -53,7 +55,6 @@ app.post("/add",(req,res)=>{
 
 
 app.get("/getall",(req,res)=>{
-    res.setHeader('Access-Control-Allow-Origin', '*');
     Todo.find({},"text completed").then(doc=>{
         res.json({response:"success",data:doc})
     })
