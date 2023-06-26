@@ -53,6 +53,7 @@ app.post("/add",(req,res)=>{
 
 
 app.get("/getall",(req,res)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
     Todo.find({},"text completed").then(doc=>{
         res.json({response:"success",data:doc})
     })
