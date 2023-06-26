@@ -44,7 +44,7 @@ const updateTodos = ()=>{
                     document.getElementById("todos").innerHTML+=`
                         <div class="todo" id="${tod._id}">
                             <div class="checkbox-container">
-                                <input type="checkbox" class="complete-checkbox" ${(tod.completed?"checked":"")} />
+                                <input type="checkbox" class="complete-checkbox prueba" ${(tod.completed?"checked":"")} />
                             </div>
                             <div class="text-container ${tod.completed?"completed":""}">
                                 ${tod.text}
